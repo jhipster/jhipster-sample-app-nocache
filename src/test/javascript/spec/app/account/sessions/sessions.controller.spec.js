@@ -2,7 +2,7 @@
 
 describe('Controllers Tests ', function () {
 
-    beforeEach(module('jhipsterApp'));
+    beforeEach(module('samplenocacheApp'));
 
     describe('SessionsController', function () {
         var $scope, SessionsService;

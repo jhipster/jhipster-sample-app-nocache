@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterApp')
+angular.module('samplenocacheApp')
     .directive('hasAnyRole', ['Principal', function (Principal) {
         return {
             restrict: 'A',

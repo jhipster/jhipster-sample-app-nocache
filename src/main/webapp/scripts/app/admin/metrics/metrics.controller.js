@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterApp')
+angular.module('samplenocacheApp')
     .controller('MetricsController', function ($scope, MonitoringService, $modal) {
         $scope.metrics = {};
         $scope.updatingMetrics = true;

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterApp')
+angular.module('samplenocacheApp')
     .controller('BankAccountController', function ($scope, BankAccount) {
         $scope.bankAccounts = [];
         $scope.loadAll = function() {

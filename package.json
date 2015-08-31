@@ -1,7 +1,7 @@
 {
-  "name": "jhipster",
+  "name": "samplenocache",
   "version": "0.0.0",
-  "description": "Description for jhipster",
+  "description": "Description for sampleNoCache",
   "private": true,
   "dependencies": {
   },

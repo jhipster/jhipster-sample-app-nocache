@@ -1,5 +1,5 @@
 {
-    "jhipsterApp": {
+    "samplenocacheApp": {
         "operation" : {
             "home": {
                 "title": "Operations",

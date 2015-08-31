@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterApp')
+angular.module('samplenocacheApp')
     .controller('HealthModalController', function($scope, $modalInstance, currentHealth, baseName, subSystemName) {
 
         $scope.currentHealth = currentHealth;

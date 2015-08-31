@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterApp')
+angular.module('samplenocacheApp')
     .factory('AlertService', function ($timeout, $sce,$translate) {
         var exports = {
             factory: factory,

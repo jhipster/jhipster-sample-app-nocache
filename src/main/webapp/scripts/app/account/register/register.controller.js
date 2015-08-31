@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterApp')
+angular.module('samplenocacheApp')
     .controller('RegisterController', function ($scope, $translate, $timeout, Auth) {
         $scope.success = null;
         $scope.error = null;

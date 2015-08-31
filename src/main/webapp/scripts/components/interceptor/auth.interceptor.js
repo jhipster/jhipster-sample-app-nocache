@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterApp')
+angular.module('samplenocacheApp')
     .factory('authExpiredInterceptor', function ($rootScope, $q, $injector, localStorageService) {
         return {
             responseError: function(response) {

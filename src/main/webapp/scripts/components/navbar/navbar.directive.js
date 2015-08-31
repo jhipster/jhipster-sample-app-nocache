@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterApp')
+angular.module('samplenocacheApp')
     .directive('activeMenu', function($translate, $locale, tmhDynamicLocale) {
         return {
             restrict: 'A',

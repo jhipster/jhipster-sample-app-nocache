@@ -30,7 +30,7 @@ public class Application {
     private Environment env;
 
     /**
-     * Initializes jhipster.
+     * Initializes sampleNoCache.
      * <p/>
      * Spring profiles can be configured with a program arguments --spring.profiles.active=your-active-profile
      * <p/>

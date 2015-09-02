@@ -1,4 +1,4 @@
-# Developping sampleNoCache
+# Developing sampleNoCache
 
 sampleNoCache was generated using JHipster, you can find documentation and help at [JHipster][].
 

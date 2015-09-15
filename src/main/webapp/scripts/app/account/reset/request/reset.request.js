@@ -7,7 +7,7 @@ angular.module('samplenocacheApp')
                 parent: 'account',
                 url: '/reset/request',
                 data: {
-                    roles: []
+                    authorities: []
                 },
                 views: {
                     'content@': {

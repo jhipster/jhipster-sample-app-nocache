@@ -7,7 +7,7 @@ angular.module('samplenocacheApp')
                 parent: 'site',
                 url: '/',
                 data: {
-                    roles: []
+                    authorities: []
                 },
                 views: {
                     'content@': {

@@ -24,6 +24,11 @@ mail:
     from: sampleNoCache@localhost
 
 
+spring:
+    mvc:
+        favicon:
+            enabled: false
+
 swagger:
     title: sampleNoCache API
     description: sampleNoCache applications and beyond!

@@ -9,6 +9,6 @@ angular.module('samplenocacheApp')
                     AlertService.success(alertKey, { param : response.headers('X-samplenocacheApp-params')});
                 }
                 return response;
-            },
+            }
         };
     });

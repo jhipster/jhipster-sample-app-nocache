@@ -18,7 +18,7 @@ import java.io.Serializable;
  * @see com.mycompany.myapp.security.CustomPersistentRememberMeServices
  */
 @Entity
-@Table(name = "JHI_PERSISTENT_TOKEN")
+@Table(name = "jhi_persistent_token")
 public class PersistentToken implements Serializable {
 
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormat.forPattern("d MMMM yyyy");

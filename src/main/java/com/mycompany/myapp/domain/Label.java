@@ -13,7 +13,7 @@ import java.util.Objects;
  * A Label.
  */
 @Entity
-@Table(name = "LABEL")
+@Table(name = "label")
 public class Label implements Serializable {
 
     @Id

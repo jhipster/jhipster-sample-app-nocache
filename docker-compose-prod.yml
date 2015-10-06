@@ -1,6 +1,6 @@
 jhipster-prod-mysql:
   container_name: sampleNoCache-prod-mysql
-  image : mysql
+  image: mysql
   # volumes:
   # - ~/volumes/jhipster/sampleNoCache/prod-mysql/:/var/lib/mysql/
   environment:

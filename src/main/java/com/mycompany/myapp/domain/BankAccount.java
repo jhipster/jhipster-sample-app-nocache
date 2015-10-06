@@ -14,7 +14,7 @@ import java.util.Objects;
  * A BankAccount.
  */
 @Entity
-@Table(name = "BANK_ACCOUNT")
+@Table(name = "bank_account")
 public class BankAccount implements Serializable {
 
     @Id

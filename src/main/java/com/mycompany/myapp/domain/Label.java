@@ -78,8 +78,8 @@ public class Label implements Serializable {
     @Override
     public String toString() {
         return "Label{" +
-                "id=" + id +
-                ", label='" + label + "'" +
-                '}';
+            "id=" + id +
+            ", label='" + label + "'" +
+            '}';
     }
 }

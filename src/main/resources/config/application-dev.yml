@@ -13,6 +13,11 @@
 spring:
     profiles:
         active: dev
+    devtools:
+        restart:
+            enabled: true
+        livereload:
+            enabled: false # we use Grunt + BrowserSync for livereload
     datasource:
         driver-class-name: org.h2.jdbcx.JdbcDataSource
         url: jdbc:h2:mem:jhipster;DB_CLOSE_DELAY=-1
@@ -27,6 +32,8 @@ spring:
             hibernate.cache.use_second_level_cache: false
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: true
+    mail:
+        host: localhost
     messages:
         cache-seconds: 1
     thymeleaf:
@@ -45,6 +52,8 @@ server:
 jhipster:
     datasource: # JHipster-specific configuration, in addition to the standard spring.datasource properties
         serverName: 
+    mail: # specific JHipster mail property, for standard properties see MailProperties
+        from: sampleNoCache@localhost
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
         spark:

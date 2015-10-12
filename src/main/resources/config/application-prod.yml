@@ -13,6 +13,11 @@
 spring:
     profiles:
         active: prod
+    devtools:
+        restart:
+            enabled: false
+        livereload:
+            enabled: false
     datasource:
         driver-class-name: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
         url: jdbc:mysql://localhost:3306/sampleNoCache?useUnicode=true&characterEncoding=utf8
@@ -27,6 +32,11 @@ spring:
             hibernate.cache.use_second_level_cache: false
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: false
+    mail:
+        host: localhost
+        port: 25
+        username:
+        password:
     thymeleaf:
         cache: true
 
@@ -35,6 +45,9 @@ liquibase:
 
 server:
     port: 8080
+    compression:
+        enabled: true
+        mime-types: text/html,text/xml,text/plain,text/css, application/javascript, application/json
 
 # ===================================================================
 # JHipster specific properties
@@ -44,6 +57,8 @@ jhipster:
     http:
         cache: # Used by the CachingHttpHeadersFilter
             timeToLiveInDays: 31
+    mail: # specific JHipster mail property, for standard properties see MailProperties
+        from: sampleNoCache@localhost
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
         spark:

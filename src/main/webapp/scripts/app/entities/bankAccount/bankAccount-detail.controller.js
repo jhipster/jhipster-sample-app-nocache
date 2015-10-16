@@ -8,7 +8,9 @@ angular.module('samplenocacheApp')
                 $scope.bankAccount = result;
             });
         };
-        $rootScope.$on('samplenocacheApp:bankAccountUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('samplenocacheApp:bankAccountUpdate', function(event, result) {
             $scope.bankAccount = result;
         });
+        $scope.$on('$destroy', unsubscribe);
+
     });

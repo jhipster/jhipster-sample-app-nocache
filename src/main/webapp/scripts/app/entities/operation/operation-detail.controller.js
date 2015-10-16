@@ -8,7 +8,9 @@ angular.module('samplenocacheApp')
                 $scope.operation = result;
             });
         };
-        $rootScope.$on('samplenocacheApp:operationUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('samplenocacheApp:operationUpdate', function(event, result) {
             $scope.operation = result;
         });
+        $scope.$on('$destroy', unsubscribe);
+
     });

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('samplenocacheApp')
+angular.module('sampleNoCacheApp')
     .factory('MonitoringService', function ($rootScope, $http) {
         return {
             getMetrics: function () {

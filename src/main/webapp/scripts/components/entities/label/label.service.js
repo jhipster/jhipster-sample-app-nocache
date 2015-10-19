@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('samplenocacheApp')
+angular.module('sampleNoCacheApp')
     .factory('Label', function ($resource, DateUtils) {
         return $resource('api/labels/:id', {}, {
             'query': { method: 'GET', isArray: true},

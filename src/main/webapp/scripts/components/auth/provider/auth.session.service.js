@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('samplenocacheApp')
+angular.module('sampleNoCacheApp')
     .factory('AuthServerProvider', function loginService($http, localStorageService, $window) {
         return {
             login: function(credentials) {

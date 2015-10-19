@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('samplenocacheApp')
+angular.module('sampleNoCacheApp')
     .controller('MetricsController', function ($scope, MonitoringService, $modal) {
         $scope.metrics = {};
         $scope.updatingMetrics = true;

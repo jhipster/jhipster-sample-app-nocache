@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('samplenocacheApp')
+angular.module('sampleNoCacheApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('bankAccount', {
@@ -8,7 +8,7 @@ angular.module('samplenocacheApp')
                 url: '/bankAccounts',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'samplenocacheApp.bankAccount.home.title'
+                    pageTitle: 'sampleNoCacheApp.bankAccount.home.title'
                 },
                 views: {
                     'content@': {
@@ -29,7 +29,7 @@ angular.module('samplenocacheApp')
                 url: '/bankAccount/{id}',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'samplenocacheApp.bankAccount.detail.title'
+                    pageTitle: 'sampleNoCacheApp.bankAccount.detail.title'
                 },
                 views: {
                     'content@': {

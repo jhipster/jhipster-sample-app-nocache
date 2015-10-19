@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('samplenocacheApp')
+angular.module('sampleNoCacheApp')
     .factory('Principal', function Principal($q, Account) {
         var _identity,
             _authenticated = false;

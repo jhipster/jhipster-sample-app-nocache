@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('samplenocacheApp').controller('LabelDialogController',
+angular.module('sampleNoCacheApp').controller('LabelDialogController',
     ['$scope', '$stateParams', '$modalInstance', 'entity', 'Label', 'Operation',
         function($scope, $stateParams, $modalInstance, entity, Label, Operation) {
 
@@ -13,7 +13,7 @@ angular.module('samplenocacheApp').controller('LabelDialogController',
         };
 
         var onSaveFinished = function (result) {
-            $scope.$emit('samplenocacheApp:labelUpdate', result);
+            $scope.$emit('sampleNoCacheApp:labelUpdate', result);
             $modalInstance.close(result);
         };
 

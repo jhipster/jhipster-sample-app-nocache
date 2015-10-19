@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('samplenocacheApp').controller('BankAccountDialogController',
+angular.module('sampleNoCacheApp').controller('BankAccountDialogController',
     ['$scope', '$stateParams', '$modalInstance', 'entity', 'BankAccount', 'User', 'Operation',
         function($scope, $stateParams, $modalInstance, entity, BankAccount, User, Operation) {
 
@@ -14,7 +14,7 @@ angular.module('samplenocacheApp').controller('BankAccountDialogController',
         };
 
         var onSaveFinished = function (result) {
-            $scope.$emit('samplenocacheApp:bankAccountUpdate', result);
+            $scope.$emit('sampleNoCacheApp:bankAccountUpdate', result);
             $modalInstance.close(result);
         };
 

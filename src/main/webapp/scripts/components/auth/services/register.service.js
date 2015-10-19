@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('samplenocacheApp')
+angular.module('sampleNoCacheApp')
     .factory('Register', function ($resource) {
         return $resource('api/register', {}, {
         });

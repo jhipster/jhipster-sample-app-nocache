@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('samplenocacheApp')
+angular.module('sampleNoCacheApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('logs', {

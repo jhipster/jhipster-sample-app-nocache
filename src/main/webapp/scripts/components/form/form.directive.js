@@ -1,7 +1,7 @@
 /* globals $ */
 'use strict';
 
-angular.module('samplenocacheApp')
+angular.module('sampleNoCacheApp')
     .directive('showValidation', function() {
         return {
             restrict: 'A',

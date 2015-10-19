@@ -1,8 +1,8 @@
 /* globals $ */
 'use strict';
 
-angular.module('samplenocacheApp')
-    .directive('samplenocacheAppPager', function() {
+angular.module('sampleNoCacheApp')
+    .directive('sampleNoCacheAppPager', function() {
         return {
             templateUrl: 'scripts/components/form/pager.html'
         };

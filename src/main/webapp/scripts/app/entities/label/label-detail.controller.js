@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('samplenocacheApp')
+angular.module('sampleNoCacheApp')
     .controller('LabelDetailController', function ($scope, $rootScope, $stateParams, entity, Label, Operation) {
         $scope.label = entity;
         $scope.load = function (id) {
@@ -8,7 +8,7 @@ angular.module('samplenocacheApp')
                 $scope.label = result;
             });
         };
-        var unsubscribe = $rootScope.$on('samplenocacheApp:labelUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('sampleNoCacheApp:labelUpdate', function(event, result) {
             $scope.label = result;
         });
         $scope.$on('$destroy', unsubscribe);

@@ -49,7 +49,7 @@ angular.module('sampleNoCacheApp')
                     size: 'lg',
                     resolve: {
                         threadDump: function() {
-                            return data;
+                            return data.content;
                         }
 
                     }

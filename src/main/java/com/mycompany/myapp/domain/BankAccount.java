@@ -37,7 +37,6 @@ public class BankAccount implements Serializable {
     @JsonIgnore
     private Set<Operation> operations = new HashSet<>();
 
-    
     public Long getId() {
         return id;
     }

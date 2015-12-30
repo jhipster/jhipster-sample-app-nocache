@@ -1,13 +1,12 @@
-jhipster-prod-mysql:
-  container_name: sampleNoCache-prod-mysql
+samplenocache-mysql:
+  container_name: samplenocache-mysql
   image: mysql:5.7.9
   # volumes:
-  # - ~/volumes/jhipster/sampleNoCache/prod-mysql/:/var/lib/mysql/
+  #   - ~/volumes/jhipster/sampleNoCache/mysql/:/var/lib/mysql/
   environment:
-  - MYSQL_USER=root
-  - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-  - MYSQL_DATABASE=samplenocache
+    - MYSQL_USER=root
+    - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    - MYSQL_DATABASE=samplenocache
   ports:
-  - "3306:3306"
+    - "3306:3306"
   command: mysqld --lower_case_table_names=1
-

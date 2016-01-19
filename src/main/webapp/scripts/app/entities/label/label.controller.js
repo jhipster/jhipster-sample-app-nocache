@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sampleNoCacheApp')
+angular.module('samplenocacheApp')
     .controller('LabelController', function ($scope, $state, Label) {
 
         $scope.labels = [];

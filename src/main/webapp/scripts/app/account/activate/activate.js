@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sampleNoCacheApp')
+angular.module('samplenocacheApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('activate', {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sampleNoCacheApp')
+angular.module('samplenocacheApp')
     .filter('capitalize', function () {
         return function (input, scope) {
             if (input != null)

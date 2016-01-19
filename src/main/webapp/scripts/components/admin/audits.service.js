@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sampleNoCacheApp')
+angular.module('samplenocacheApp')
     .factory('AuditsService', function ($http) {
         return {
             findAll: function () {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sampleNoCacheApp')
+angular.module('samplenocacheApp')
     .directive('jhAlert', function(AlertService) {
         return {
             restrict: 'E',
@@ -32,7 +32,7 @@ angular.module('sampleNoCacheApp')
 
                     $scope.alerts = [];
 
-                    var cleanHttpErrorListener = $rootScope.$on('sampleNoCacheApp.httpError', function (event, httpResponse) {
+                    var cleanHttpErrorListener = $rootScope.$on('samplenocacheApp.httpError', function (event, httpResponse) {
                         var i;
                         event.stopPropagation();
                         switch (httpResponse.status) {
@@ -42,8 +42,8 @@ angular.module('sampleNoCacheApp')
                                 break;
 
                             case 400:
-                                var errorHeader = httpResponse.headers('X-sampleNoCacheApp-error');
-                                var entityKey = httpResponse.headers('X-sampleNoCacheApp-params');
+                                var errorHeader = httpResponse.headers('X-samplenocacheApp-error');
+                                var entityKey = httpResponse.headers('X-samplenocacheApp-params');
                                 if (errorHeader) {
                                     var entityName = $translate.instant('global.menu.entities.' + entityKey);
                                     addErrorAlert(errorHeader, errorHeader, {entityName: entityName});
@@ -52,7 +52,7 @@ angular.module('sampleNoCacheApp')
                                         var fieldError = httpResponse.data.fieldErrors[i];
                                         // convert 'something[14].other[4].id' to 'something[].other[].id' so translations can be written to it
                                         var convertedField = fieldError.field.replace(/\[\d*\]/g, "[]");
-                                        var fieldName = $translate.instant('sampleNoCacheApp.' + fieldError.objectName + '.' + convertedField);
+                                        var fieldName = $translate.instant('samplenocacheApp.' + fieldError.objectName + '.' + convertedField);
                                         addErrorAlert('Field ' + fieldName + ' cannot be empty', 'error.' + fieldError.message, {fieldName: fieldName});
                                     }
                                 } else if (httpResponse.data && httpResponse.data.message) {

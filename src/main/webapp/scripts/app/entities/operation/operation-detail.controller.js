@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sampleNoCacheApp')
+angular.module('samplenocacheApp')
     .controller('OperationDetailController', function ($scope, $rootScope, $stateParams, entity, Operation, BankAccount, Label) {
         $scope.operation = entity;
         $scope.load = function (id) {
@@ -8,7 +8,7 @@ angular.module('sampleNoCacheApp')
                 $scope.operation = result;
             });
         };
-        var unsubscribe = $rootScope.$on('sampleNoCacheApp:operationUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('samplenocacheApp:operationUpdate', function(event, result) {
             $scope.operation = result;
         });
         $scope.$on('$destroy', unsubscribe);

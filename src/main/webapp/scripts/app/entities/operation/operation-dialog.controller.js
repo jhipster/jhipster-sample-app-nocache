@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sampleNoCacheApp').controller('OperationDialogController',
+angular.module('samplenocacheApp').controller('OperationDialogController',
     ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Operation', 'BankAccount', 'Label',
         function($scope, $stateParams, $uibModalInstance, entity, Operation, BankAccount, Label) {
 
@@ -14,7 +14,7 @@ angular.module('sampleNoCacheApp').controller('OperationDialogController',
         };
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('sampleNoCacheApp:operationUpdate', result);
+            $scope.$emit('samplenocacheApp:operationUpdate', result);
             $uibModalInstance.close(result);
             $scope.isSaving = false;
         };

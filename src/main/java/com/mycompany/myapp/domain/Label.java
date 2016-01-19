@@ -24,7 +24,7 @@ public class Label implements Serializable {
     @Size(min = 3)
     @Column(name = "label", nullable = false)
     private String label;
-
+    
     @ManyToMany(mappedBy = "labels")
     @JsonIgnore
     private Set<Operation> operations = new HashSet<>();
@@ -40,7 +40,7 @@ public class Label implements Serializable {
     public String getLabel() {
         return label;
     }
-
+    
     public void setLabel(String label) {
         this.label = label;
     }
@@ -62,6 +62,9 @@ public class Label implements Serializable {
             return false;
         }
         Label label = (Label) o;
+        if(label.id == null || id == null) {
+            return false;
+        }
         return Objects.equals(id, label.id);
     }
 

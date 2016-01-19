@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sampleNoCacheApp')
+angular.module('samplenocacheApp')
     .service('ParseLinks', function () {
         this.parse = function (header) {
             if (header.length == 0) {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sampleNoCacheApp').controller('UserManagementDialogController',
+angular.module('samplenocacheApp').controller('UserManagementDialogController',
     ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'User', 'Language',
         function($scope, $stateParams, $uibModalInstance, entity, User, Language) {
 

@@ -24,11 +24,11 @@ public class BankAccount implements Serializable {
     @NotNull
     @Column(name = "name", nullable = false)
     private String name;
-
+    
     @NotNull
     @Column(name = "balance", precision=10, scale=2, nullable = false)
     private BigDecimal balance;
-
+    
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -48,7 +48,7 @@ public class BankAccount implements Serializable {
     public String getName() {
         return name;
     }
-
+    
     public void setName(String name) {
         this.name = name;
     }
@@ -56,7 +56,7 @@ public class BankAccount implements Serializable {
     public BigDecimal getBalance() {
         return balance;
     }
-
+    
     public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
@@ -86,6 +86,9 @@ public class BankAccount implements Serializable {
             return false;
         }
         BankAccount bankAccount = (BankAccount) o;
+        if(bankAccount.id == null || id == null) {
+            return false;
+        }
         return Objects.equals(id, bankAccount.id);
     }
 

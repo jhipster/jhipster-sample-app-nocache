@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sampleNoCacheApp')
+angular.module('samplenocacheApp')
     .controller('OperationController', function ($scope, $state, Operation, ParseLinks) {
 
         $scope.operations = [];

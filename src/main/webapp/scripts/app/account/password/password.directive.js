@@ -1,7 +1,7 @@
 /* globals $ */
 'use strict';
 
-angular.module('sampleNoCacheApp')
+angular.module('samplenocacheApp')
     .directive('passwordStrengthBar', function () {
         return {
             replace: true,

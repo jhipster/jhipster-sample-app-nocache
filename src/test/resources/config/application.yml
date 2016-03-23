@@ -12,7 +12,6 @@
 
 spring:
     datasource:
-        driver-class-name: org.h2.jdbcx.JdbcDataSource
         url: jdbc:h2:mem:sampleNoCache;DB_CLOSE_DELAY=-1
         name:
         username:
@@ -59,9 +58,9 @@ jhipster:
         maxPoolSize: 50
         queueCapacity: 10000
     security:
-        rememberme:
+        rememberMe:
             # security key (this key should be unique for your application, and kept secret)
-            key: 3f33bfd9821bec464dfa2f1f45f4e99b604d87a9
+            key: 7e1b1cf0c17326d1b6fc9527464588252ced6f10
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
     swagger:
@@ -69,6 +68,8 @@ jhipster:
         description: sampleNoCache API documentation
         version: 0.0.1
         termsOfServiceUrl:
-        contact:
+        contactName:
+        contactUrl:
+        contactEmail:
         license:
         licenseUrl:

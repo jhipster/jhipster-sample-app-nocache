@@ -16,6 +16,8 @@ import java.util.Objects;
 @Table(name = "label")
 public class Label implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -24,7 +26,7 @@ public class Label implements Serializable {
     @Size(min = 3)
     @Column(name = "label", nullable = false)
     private String label;
-    
+
     @ManyToMany(mappedBy = "labels")
     @JsonIgnore
     private Set<Operation> operations = new HashSet<>();
@@ -40,7 +42,7 @@ public class Label implements Serializable {
     public String getLabel() {
         return label;
     }
-    
+
     public void setLabel(String label) {
         this.label = label;
     }

@@ -1,0 +1,15 @@
+version: '2'
+services:
+    samplenocache-app:
+        image: samplenocache
+        external_links:
+            - samplenocache-mysql:mysql
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod
+            - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/samplenocache?useUnicode=true&characterEncoding=utf8&useSSL=false
+        ports:
+            - 8080:8080
+    samplenocache-mysql:
+        extends:
+            file: mysql.yml
+            service: samplenocache-mysql

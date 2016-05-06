@@ -51,6 +51,10 @@ server:
 # ===================================================================
 
 jhipster:
+    security:
+        rememberMe:
+            # security key (this key should be unique for your application, and kept secret)
+            key: 7e1b1cf0c17326d1b6fc9527464588252ced6f10
     mail: # specific JHipster mail property, for standard properties see MailProperties
         from: sampleNoCache@localhost
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
@@ -64,7 +68,7 @@ jhipster:
             host: localhost
             port: 2003
             prefix: sampleNoCache
-        logs: # report metrics in the logs
+        logs: # Reports Dropwizard metrics in the logs
             enabled: false
             reportFrequency: 60 # in seconds
     logging:

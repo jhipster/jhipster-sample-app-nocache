@@ -1,6 +1,6 @@
 {
   "version": "0.0.0",
-  "name": "sample-no-cache",
+  "name": "jhipster-no-cache-sample-application",
   "appPath": "src/main/webapp/",
   "testPath": "src/test/javascript/spec",
   "dependencies": {

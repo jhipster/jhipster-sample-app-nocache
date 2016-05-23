@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('sampleNoCacheApp')
+        .module('jhipsterNoCacheSampleApplicationApp')
         .directive('jhSort', jhSort);
 
     function jhSort () {

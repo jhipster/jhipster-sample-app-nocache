@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('sampleNoCacheApp')
+        .module('jhipsterNoCacheSampleApplicationApp')
         .config(stateConfig);
 
     stateConfig.$inject = ['$stateProvider'];
@@ -14,7 +14,7 @@
             url: '/bank-account',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'sampleNoCacheApp.bankAccount.home.title'
+                pageTitle: 'jhipsterNoCacheSampleApplicationApp.bankAccount.home.title'
             },
             views: {
                 'content@': {
@@ -36,7 +36,7 @@
             url: '/bank-account/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'sampleNoCacheApp.bankAccount.detail.title'
+                pageTitle: 'jhipsterNoCacheSampleApplicationApp.bankAccount.detail.title'
             },
             views: {
                 'content@': {

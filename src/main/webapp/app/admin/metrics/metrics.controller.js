@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('sampleNoCacheApp')
+        .module('jhipsterNoCacheSampleApplicationApp')
         .controller('JhiMetricsMonitoringController', JhiMetricsMonitoringController);
 
     JhiMetricsMonitoringController.$inject = ['$scope','JhiMetricsService', '$uibModal'];

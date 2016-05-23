@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('sampleNoCacheApp')
+        .module('jhipsterNoCacheSampleApplicationApp')
         .controller('LabelDialogController', LabelDialogController);
 
     LabelDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Label', 'Operation'];
@@ -17,7 +17,7 @@
         });
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('sampleNoCacheApp:labelUpdate', result);
+            $scope.$emit('jhipsterNoCacheSampleApplicationApp:labelUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         };

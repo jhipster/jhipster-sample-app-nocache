@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('sampleNoCacheApp')
+        .module('jhipsterNoCacheSampleApplicationApp')
         .controller('BankAccountDialogController', BankAccountDialogController);
 
     BankAccountDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'BankAccount', 'User', 'Operation'];
@@ -18,7 +18,7 @@
         });
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('sampleNoCacheApp:bankAccountUpdate', result);
+            $scope.$emit('jhipsterNoCacheSampleApplicationApp:bankAccountUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         };

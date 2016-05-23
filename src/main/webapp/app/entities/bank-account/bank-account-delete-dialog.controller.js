@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('sampleNoCacheApp')
+        .module('jhipsterNoCacheSampleApplicationApp')
         .controller('BankAccountDeleteController',BankAccountDeleteController);
 
     BankAccountDeleteController.$inject = ['$uibModalInstance', 'entity', 'BankAccount'];

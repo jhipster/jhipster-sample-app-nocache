@@ -1,8 +1,8 @@
 version: '2'
 services:
-    samplenocache-sonar:
-        container_name: samplenocache-sonar
-        image: sonarqube:5.3
+    jhipsternocachesampleapplication-sonar:
+        container_name: jhipsternocachesampleapplication-sonar
+        image: sonarqube:5.5-alpine
         ports:
             - 9000:9000
             - 9092:9092

@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('sampleNoCacheApp')
+        .module('jhipsterNoCacheSampleApplicationApp')
         .factory('Base64', Base64);
 
     function Base64 () {

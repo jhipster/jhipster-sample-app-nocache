@@ -1,5 +1,5 @@
 {
-    "sampleNoCacheApp": {
+    "jhipsterNoCacheSampleApplicationApp": {
         "bankAccount" : {
             "home": {
                 "title": "Bank Accounts",

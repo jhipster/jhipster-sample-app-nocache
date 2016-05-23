@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('sampleNoCacheApp')
+        .module('jhipsterNoCacheSampleApplicationApp')
         .controller('LabelController', LabelController);
 
     LabelController.$inject = ['$scope', '$state', 'Label'];

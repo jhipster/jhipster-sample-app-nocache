@@ -1,5 +1,5 @@
 {
-    "sampleNoCacheApp": {
+    "jhipsterNoCacheSampleApplicationApp": {
         "operation" : {
             "home": {
                 "title": "Operations",

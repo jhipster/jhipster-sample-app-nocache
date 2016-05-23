@@ -1,7 +1,7 @@
 {
-  "name": "sample-no-cache",
+  "name": "jhipster-no-cache-sample-application",
   "version": "0.0.0",
-  "description": "Description for sampleNoCache",
+  "description": "Description for jhipsterNoCacheSampleApplication",
   "private": true,
   "cacheDirectories": [
     "node_modules",

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('sampleNoCacheApp')
+        .module('jhipsterNoCacheSampleApplicationApp')
         .controller('OperationController', OperationController);
 
     OperationController.$inject = ['$scope', '$state', 'Operation', 'ParseLinks', 'AlertService'];

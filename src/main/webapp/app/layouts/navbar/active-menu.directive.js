@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('sampleNoCacheApp')
+        .module('jhipsterNoCacheSampleApplicationApp')
         .directive('activeMenu', activeMenu);
 
     function activeMenu($translate, $locale, tmhDynamicLocale) {

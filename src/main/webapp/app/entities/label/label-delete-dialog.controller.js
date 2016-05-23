@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('sampleNoCacheApp')
+        .module('jhipsterNoCacheSampleApplicationApp')
         .controller('LabelDeleteController',LabelDeleteController);
 
     LabelDeleteController.$inject = ['$uibModalInstance', 'entity', 'Label'];

@@ -18,15 +18,15 @@ spring:
         livereload:
             enabled: false # we use gulp + BrowserSync for livereload
     datasource:
-        url: jdbc:h2:mem:samplenocache;DB_CLOSE_DELAY=-1
+        url: jdbc:h2:mem:jhipsternocachesampleapplication;DB_CLOSE_DELAY=-1
         name:
-        username: sampleNoCache
+        username: jhipsterNoCacheSampleApplication
         password:
     h2:
         console:
             enabled: false
     jpa:
-        database-platform: com.mycompany.myapp.domain.util.FixedH2Dialect
+        database-platform: io.github.jhipster.sample.domain.util.FixedH2Dialect
         database: H2
         show_sql: true
         properties:
@@ -35,6 +35,9 @@ spring:
             hibernate.generate_statistics: true
     mail:
         host: localhost
+        port: 25
+        username:
+        password:
     messages:
         cache-seconds: 1
     thymeleaf:
@@ -56,7 +59,7 @@ jhipster:
             # security key (this key should be unique for your application, and kept secret)
             key: 7e1b1cf0c17326d1b6fc9527464588252ced6f10
     mail: # specific JHipster mail property, for standard properties see MailProperties
-        from: sampleNoCache@localhost
+        from: jhipsterNoCacheSampleApplication@localhost
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
         spark:
@@ -67,7 +70,7 @@ jhipster:
             enabled: false
             host: localhost
             port: 2003
-            prefix: sampleNoCache
+            prefix: jhipsterNoCacheSampleApplication
         logs: # Reports Dropwizard metrics in the logs
             enabled: false
             reportFrequency: 60 # in seconds

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('sampleNoCacheApp')
+        .module('jhipsterNoCacheSampleApplicationApp')
         .directive('pageRibbon', pageRibbon);
 
     function pageRibbon(ProfileService, $rootScope, $translate) {

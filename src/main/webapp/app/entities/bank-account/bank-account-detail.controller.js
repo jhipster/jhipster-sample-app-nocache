@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('sampleNoCacheApp')
+        .module('jhipsterNoCacheSampleApplicationApp')
         .controller('BankAccountDetailController', BankAccountDetailController);
 
     BankAccountDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'BankAccount', 'User', 'Operation'];
@@ -11,7 +11,7 @@
         var vm = this;
         vm.bankAccount = entity;
         
-        var unsubscribe = $rootScope.$on('sampleNoCacheApp:bankAccountUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('jhipsterNoCacheSampleApplicationApp:bankAccountUpdate', function(event, result) {
             vm.bankAccount = result;
         });
         $scope.$on('$destroy', unsubscribe);

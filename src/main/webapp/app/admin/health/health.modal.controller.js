@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('sampleNoCacheApp')
+    angular.module('jhipsterNoCacheSampleApplicationApp')
         .controller('HealthModalController', HealthModalController);
 
     HealthModalController.$inject = ['$uibModalInstance', 'currentHealth', 'baseName', 'subSystemName'];

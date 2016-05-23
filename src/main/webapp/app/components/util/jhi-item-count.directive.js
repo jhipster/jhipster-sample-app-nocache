@@ -14,6 +14,6 @@
     };
 
     angular
-        .module('sampleNoCacheApp')
+        .module('jhipsterNoCacheSampleApplicationApp')
         .component('jhiItemCount', jhiItemCount);
 })();

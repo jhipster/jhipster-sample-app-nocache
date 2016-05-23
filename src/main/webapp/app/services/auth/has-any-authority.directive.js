@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('sampleNoCacheApp')
+        .module('jhipsterNoCacheSampleApplicationApp')
         .directive('hasAnyAuthority', hasAnyAuthority);
 
     function hasAnyAuthority(Principal) {

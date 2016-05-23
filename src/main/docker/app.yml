@@ -1,15 +1,15 @@
 version: '2'
 services:
-    samplenocache-app:
-        image: samplenocache
+    jhipsternocachesampleapplication-app:
+        image: jhipsternocachesampleapplication
         external_links:
-            - samplenocache-mysql:mysql
+            - jhipsternocachesampleapplication-mysql:mysql
         environment:
             - SPRING_PROFILES_ACTIVE=prod
-            - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/samplenocache?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/jhipsternocachesampleapplication?useUnicode=true&characterEncoding=utf8&useSSL=false
         ports:
             - 8080:8080
-    samplenocache-mysql:
+    jhipsternocachesampleapplication-mysql:
         extends:
             file: mysql.yml
-            service: samplenocache-mysql
+            service: jhipsternocachesampleapplication-mysql

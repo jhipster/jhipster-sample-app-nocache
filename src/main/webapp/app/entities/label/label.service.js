@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('sampleNoCacheApp')
+        .module('jhipsterNoCacheSampleApplicationApp')
         .factory('Label', Label);
 
     Label.$inject = ['$resource'];

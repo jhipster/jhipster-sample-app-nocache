@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('sampleNoCacheApp')
+        .module('jhipsterNoCacheSampleApplicationApp')
         .factory('notificationInterceptor', notificationInterceptor);
 
     notificationInterceptor.$inject = ['$q', 'AlertService'];
@@ -15,9 +15,9 @@
         return service;
 
         function response (response) {
-            var alertKey = response.headers('X-sampleNoCacheApp-alert');
+            var alertKey = response.headers('X-jhipsterNoCacheSampleApplicationApp-alert');
             if (angular.isString(alertKey)) {
-                AlertService.success(alertKey, { param : response.headers('X-sampleNoCacheApp-params')});
+                AlertService.success(alertKey, { param : response.headers('X-jhipsterNoCacheSampleApplicationApp-params')});
             }
             return response;
         }

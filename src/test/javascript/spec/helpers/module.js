@@ -1,4 +1,4 @@
-beforeEach(module('sampleNoCacheApp'));
+beforeEach(module('jhipsterNoCacheSampleApplicationApp'));
 /**
  * returns a function whose angular will be replaced
  * with whatever mock was supplied.

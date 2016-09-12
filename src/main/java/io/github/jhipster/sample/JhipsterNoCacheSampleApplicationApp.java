@@ -72,5 +72,4 @@ public class JhipsterNoCacheSampleApplicationApp {
             env.getProperty("server.port"));
 
     }
-
 }

@@ -1,9 +1,7 @@
 package io.github.jhipster.sample.domain;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -21,8 +19,6 @@ public class PersistentToken implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("d MMMM yyyy");
-
     private static final int MAX_USER_AGENT_LEN = 255;
 
     @Id
@@ -32,8 +28,7 @@ public class PersistentToken implements Serializable {
     @NotNull
     @Column(name = "token_value", nullable = false)
     private String tokenValue;
-
-    @JsonIgnore
+    
     @Column(name = "token_date")
     private LocalDate tokenDate;
 
@@ -71,11 +66,6 @@ public class PersistentToken implements Serializable {
 
     public void setTokenDate(LocalDate tokenDate) {
         this.tokenDate = tokenDate;
-    }
-
-    @JsonGetter
-    public String getFormattedTokenDate() {
-        return DATE_TIME_FORMATTER.format(this.tokenDate);
     }
 
     public String getIpAddress() {

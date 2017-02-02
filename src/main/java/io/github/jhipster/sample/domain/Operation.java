@@ -20,7 +20,7 @@ public class Operation implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
@@ -39,8 +39,8 @@ public class Operation implements Serializable {
 
     @ManyToMany
     @JoinTable(name = "operation_label",
-               joinColumns = @JoinColumn(name="operations_id", referencedColumnName="ID"),
-               inverseJoinColumns = @JoinColumn(name="labels_id", referencedColumnName="ID"))
+               joinColumns = @JoinColumn(name="operations_id", referencedColumnName="id"),
+               inverseJoinColumns = @JoinColumn(name="labels_id", referencedColumnName="id"))
     private Set<Label> labels = new HashSet<>();
 
     public Long getId() {

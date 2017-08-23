@@ -31,6 +31,7 @@ public class Label implements Serializable {
     @JsonIgnore
     private Set<Operation> operations = new HashSet<>();
 
+    // jhipster-needle-entity-add-field - Jhipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -54,6 +55,7 @@ public class Label implements Serializable {
     public void setOperations(Set<Operation> operations) {
         this.operations = operations;
     }
+    // jhipster-needle-entity-add-getters-setters - Jhipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {

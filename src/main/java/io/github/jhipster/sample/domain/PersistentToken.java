@@ -2,7 +2,6 @@ package io.github.jhipster.sample.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDate;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -40,6 +39,7 @@ public class PersistentToken implements Serializable {
 
     @Column(name = "user_agent")
     private String userAgent;
+        
 
     @JsonIgnore
     @ManyToOne

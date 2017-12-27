@@ -2,10 +2,12 @@ package io.github.jhipster.sample.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDate;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+
 
 /**
  * Persistent tokens are used by Spring Security to automatically log in users.
@@ -14,7 +16,6 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "jhi_persistent_token")
-
 public class PersistentToken implements Serializable {
 
     private static final long serialVersionUID = 1L;

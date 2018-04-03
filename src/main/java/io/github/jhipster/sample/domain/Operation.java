@@ -1,5 +1,6 @@
 package io.github.jhipster.sample.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -36,6 +37,7 @@ public class Operation implements Serializable {
     private BigDecimal amount;
 
     @ManyToOne
+    @JsonIgnoreProperties("operations")
     private BankAccount bankAccount;
 
     @ManyToMany

@@ -1,6 +1,7 @@
 package io.github.jhipster.sample.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -33,10 +34,10 @@ public class BankAccount implements Serializable {
     private BigDecimal balance;
 
     @ManyToOne
+    @JsonIgnoreProperties("")
     private User user;
 
     @OneToMany(mappedBy = "bankAccount")
-    @JsonIgnore
     private Set<Operation> operations = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

@@ -3,30 +3,30 @@ import { RouterModule } from '@angular/router';
 
 import { JhipsterNoCacheSampleApplicationSharedModule } from 'app/shared';
 import {
-  OperationService,
-  OperationComponent,
-  OperationDetailComponent,
-  OperationUpdateComponent,
-  OperationDeletePopupComponent,
-  OperationDeleteDialogComponent,
-  operationRoute,
-  operationPopupRoute,
-  OperationResolve
+    OperationService,
+    OperationComponent,
+    OperationDetailComponent,
+    OperationUpdateComponent,
+    OperationDeletePopupComponent,
+    OperationDeleteDialogComponent,
+    operationRoute,
+    operationPopupRoute,
+    OperationResolve
 } from './';
 
 const ENTITY_STATES = [...operationRoute, ...operationPopupRoute];
 
 @NgModule({
-  imports: [JhipsterNoCacheSampleApplicationSharedModule, RouterModule.forChild(ENTITY_STATES)],
-  declarations: [
-    OperationComponent,
-    OperationDetailComponent,
-    OperationUpdateComponent,
-    OperationDeleteDialogComponent,
-    OperationDeletePopupComponent
-  ],
-  entryComponents: [OperationComponent, OperationUpdateComponent, OperationDeleteDialogComponent, OperationDeletePopupComponent],
-  providers: [OperationService, OperationResolve],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    imports: [JhipsterNoCacheSampleApplicationSharedModule, RouterModule.forChild(ENTITY_STATES)],
+    declarations: [
+        OperationComponent,
+        OperationDetailComponent,
+        OperationUpdateComponent,
+        OperationDeleteDialogComponent,
+        OperationDeletePopupComponent
+    ],
+    entryComponents: [OperationComponent, OperationUpdateComponent, OperationDeleteDialogComponent, OperationDeletePopupComponent],
+    providers: [OperationService, OperationResolve],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class JhipsterNoCacheSampleApplicationOperationModule {}

@@ -33,7 +33,7 @@ public class Operation implements Serializable {
     private String description;
 
     @NotNull
-    @Column(name = "amount", precision=10, scale=2, nullable = false)
+    @Column(name = "amount", precision = 10, scale = 2, nullable = false)
     private BigDecimal amount;
 
     @ManyToOne
@@ -42,8 +42,8 @@ public class Operation implements Serializable {
 
     @ManyToMany
     @JoinTable(name = "operation_label",
-               joinColumns = @JoinColumn(name="operations_id", referencedColumnName="id"),
-               inverseJoinColumns = @JoinColumn(name="labels_id", referencedColumnName="id"))
+               joinColumns = @JoinColumn(name = "operations_id", referencedColumnName = "id"),
+               inverseJoinColumns = @JoinColumn(name = "labels_id", referencedColumnName = "id"))
     private Set<Label> labels = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

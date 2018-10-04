@@ -19,8 +19,8 @@
         <maven.version>3.0.0</maven.version>
         <java.version>1.8</java.version>
         <scala.version>2.12.6</scala.version>
-        <node.version>v8.11.3</node.version>
-        <yarn.version>v1.9.2</yarn.version>
+        <node.version>v8.12.0</node.version>
+        <npm.version>6.4.1</npm.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.testresult.directory>${project.build.directory}/test-results</project.testresult.directory>
@@ -33,12 +33,13 @@
         <!-- These remain empty unless the corresponding profile is active -->
         <profile.no-liquibase />
         <profile.swagger />
+        <profile.tls />
 
         <!-- Dependency versions -->
-        <jhipster-dependencies.version>2.0.15</jhipster-dependencies.version>
+        <jhipster-dependencies.version>2.0.24</jhipster-dependencies.version>
         <!-- The spring-boot version should match the one managed by
         https://mvnrepository.com/artifact/io.github.jhipster/jhipster-dependencies/${jhipster-dependencies.version} -->
-        <spring-boot.version>2.0.4.RELEASE</spring-boot.version>
+        <spring-boot.version>2.0.5.RELEASE</spring-boot.version>
         <!-- The hibernate version should match the one managed by
         https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/${spring-boot.version} -->
         <hibernate.version>5.2.17.Final</hibernate.version>
@@ -54,20 +55,21 @@
 
         <!-- Plugin versions -->
         <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
-        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version>
         <maven-enforcer-plugin.version>3.0.0-M2</maven-enforcer-plugin.version>
         <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
         <maven-surefire-plugin.version>2.22.0</maven-surefire-plugin.version>
         <maven-war-plugin.version>3.2.2</maven-war-plugin.version>
-        <dockerfile-maven-plugin.version>1.4.3</dockerfile-maven-plugin.version>
+        <jib-maven-plugin.version>0.9.11</jib-maven-plugin.version>
         <frontend-maven-plugin.version>1.6</frontend-maven-plugin.version>
-        <jacoco-maven-plugin.version>0.8.1</jacoco-maven-plugin.version>
-        <scala-maven-plugin.version>3.4.1</scala-maven-plugin.version>
-        <sonar-maven-plugin.version>3.4.1.1168</sonar-maven-plugin.version>
-        <git-commit-id-plugin.version>2.2.4</git-commit-id-plugin.version>
+        <jacoco-maven-plugin.version>0.8.2</jacoco-maven-plugin.version>
+        <scala-maven-plugin.version>3.4.2</scala-maven-plugin.version>
+        <sonar-maven-plugin.version>3.5.0.1254</sonar-maven-plugin.version>
+        <git-commit-id-plugin.version>2.2.5</git-commit-id-plugin.version>
 
         <!-- Sonar properties -->
+        <sonar.host.url>http://localhost:9001</sonar.host.url>
         <sonar.exclusions>src/main/webapp/content/**/*.*, src/main/webapp/i18n/*.js, target/www/**/*.*</sonar.exclusions>
         <sonar.issue.ignore.multicriteria>S3437,S4684,UndocumentedApi,BoldAndItalicTagsCheck</sonar.issue.ignore.multicriteria>
         <!-- Rule https://sonarcloud.io/coding_rules?open=Web%3ABoldAndItalicTagsCheck&rule_key=Web%3ABoldAndItalicTagsCheck is ignored. Even if we agree that using the "i" tag is an awful practice, this is what is recommended by http://fontawesome.io/examples/ -->
@@ -147,10 +149,6 @@
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-json-org</artifactId>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
@@ -296,6 +294,7 @@
         <dependency>
             <groupId>org.zalando</groupId>
             <artifactId>problem-spring-web</artifactId>
+            <version>0.24.0-RC.0</version>
         </dependency>
         <!-- Spring Cloud -->
         <dependency>
@@ -406,19 +405,16 @@
                     </execution>
                     <execution>
                         <id>docker-resources</id>
-                        <phase>validate</phase>
+                        <phase>verify</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>target/</outputDirectory>
+                            <outputDirectory>target/classes/static/</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>src/main/docker/</directory>
+                                    <directory>target/www</directory>
                                     <filtering>false</filtering>
-                                    <excludes>
-                                        <exclude>**/*.yml</exclude>
-                                    </excludes>
                                 </resource>
                             </resources>
                         </configuration>
@@ -529,57 +525,31 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>${dockerfile-maven-plugin.version}</version>
-                <executions>
-                    <!--
-                     Uncomment the section below to build the docker image with mvn package and and push it with mvn deploy
-                    <execution>
-                        <id>default</id>
-                        <goals>
-                            <goal>build</goal>
-                            <goal>push</goal>
-                        </goals>
-                    </execution>
-                    -->
-                    <execution>
-                        <id>tag-latest</id>
-                        <phase>none</phase>
-                        <goals>
-                            <goal>build</goal>
-                            <goal>tag</goal>
-                            <goal>push</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>version</id>
-                        <phase>none</phase>
-                        <goals>
-                            <goal>build</goal>
-                            <goal>tag</goal>
-                            <goal>push</goal>
-                        </goals>
-                        <configuration>
-                            <tag>${project.version}</tag>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>commit</id>
-                        <phase>none</phase>
-                        <goals>
-                            <goal>build</goal>
-                            <goal>tag</goal>
-                            <goal>push</goal>
-                        </goals>
-                        <configuration>
-                            <tag>${git.commit.id.describe}</tag>
-                        </configuration>
-                    </execution>
-                </executions>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>${jib-maven-plugin.version}</version>
                 <configuration>
-                    <repository>jhipsternocachesampleapplication</repository>
-                    <contextDirectory>${project.build.directory}</contextDirectory>
+                    <from>
+                        <image>openjdk:8-jre-alpine</image>
+                    </from>
+                    <to>
+                        <image>jhipsternocachesampleapplication:latest</image>
+                    </to>
+                    <container>
+                        <entrypoint>
+                            <shell>sh</shell>
+                            <option>-c</option>
+                            <arg>chmod +x /entrypoint.sh &amp;&amp; /entrypoint.sh</arg>
+                        </entrypoint>
+                        <ports>
+                            <port>8080</port>
+                        </ports>
+                        <environment>
+                            <SPRING_OUTPUT_ANSI_ENABLED>ALWAYS</SPRING_OUTPUT_ANSI_ENABLED>
+                            <JHIPSTER_SLEEP>0</JHIPSTER_SLEEP>
+                        </environment>
+                        <useCurrentTimestamp>true</useCurrentTimestamp>
+                    </container>
                 </configuration>
             </plugin>
             <!-- jhipster-needle-maven-add-plugin -->
@@ -621,8 +591,8 @@
                                         <artifactId>frontend-maven-plugin</artifactId>
                                         <versionRange>${frontend-maven-plugin.version}</versionRange>
                                         <goals>
-                                            <goal>install-node-and-yarn</goal>
-                                            <goal>yarn</goal>
+                                            <goal>install-node-and-npm</goal>
+                                            <goal>npm</goal>
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
@@ -647,6 +617,12 @@
             <id>swagger</id>
             <properties>
                 <profile.swagger>,swagger</profile.swagger>
+            </properties>
+        </profile>
+        <profile>
+            <id>tls</id>
+            <properties>
+                <profile.tls>,tls</profile.tls>
             </properties>
         </profile>
         <profile>
@@ -679,24 +655,33 @@
                         <version>${frontend-maven-plugin.version}</version>
                         <executions>
                             <execution>
-                                <id>install node and yarn</id>
+                                <id>install node and npm</id>
                                 <goals>
-                                    <goal>install-node-and-yarn</goal>
+                                    <goal>install-node-and-npm</goal>
                                 </goals>
                                 <configuration>
                                     <nodeVersion>${node.version}</nodeVersion>
-                                    <yarnVersion>${yarn.version}</yarnVersion>
+                                    <npmVersion>${npm.version}</npmVersion>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>npm install</id>
+                                <goals>
+                                    <goal>npm</goal>
+                                </goals>
+                                <configuration>
+                                    <arguments>install</arguments>
                                 </configuration>
                             </execution>
                             <execution>
                                 <id>webpack build dev</id>
                                 <goals>
-                                    <goal>yarn</goal>
+                                    <goal>npm</goal>
                                 </goals>
                                 <phase>generate-resources</phase>
                                 <configuration>
                                     <arguments>run webpack:build</arguments>
-                                    <yarnInheritsProxyConfigFromMaven>false</yarnInheritsProxyConfigFromMaven>
+                                    <npmInheritsProxyConfigFromMaven>false</npmInheritsProxyConfigFromMaven>
                                 </configuration>
                             </execution>
                         </executions>
@@ -768,7 +753,7 @@
             </build>
             <properties>
                 <!-- default Spring profiles -->
-                <spring.profiles.active>dev${profile.no-liquibase}</spring.profiles.active>
+                <spring.profiles.active>dev${profile.tls}${profile.no-liquibase}</spring.profiles.active>
             </properties>
         </profile>
         <profile>
@@ -831,19 +816,19 @@
                         <version>${frontend-maven-plugin.version}</version>
                         <executions>
                             <execution>
-                                <id>install node and yarn</id>
+                                <id>install node and npm</id>
                                 <goals>
-                                    <goal>install-node-and-yarn</goal>
+                                    <goal>install-node-and-npm</goal>
                                 </goals>
                                 <configuration>
                                     <nodeVersion>${node.version}</nodeVersion>
-                                    <yarnVersion>${yarn.version}</yarnVersion>
+                                    <npmVersion>${npm.version}</npmVersion>
                                 </configuration>
                             </execution>
                             <execution>
-                                <id>yarn install</id>
+                                <id>npm install</id>
                                 <goals>
-                                    <goal>yarn</goal>
+                                    <goal>npm</goal>
                                 </goals>
                                 <configuration>
                                     <arguments>install</arguments>
@@ -852,23 +837,23 @@
                             <execution>
                                 <id>webpack build test</id>
                                 <goals>
-                                    <goal>yarn</goal>
+                                    <goal>npm</goal>
                                 </goals>
                                 <phase>test</phase>
                                 <configuration>
                                     <arguments>run webpack:test</arguments>
-                                    <yarnInheritsProxyConfigFromMaven>false</yarnInheritsProxyConfigFromMaven>
+                                    <npmInheritsProxyConfigFromMaven>false</npmInheritsProxyConfigFromMaven>
                                 </configuration>
                             </execution>
                             <execution>
                                 <id>webpack build prod</id>
                                 <goals>
-                                    <goal>yarn</goal>
+                                    <goal>npm</goal>
                                 </goals>
                                 <phase>generate-resources</phase>
                                 <configuration>
                                     <arguments>run webpack:prod</arguments>
-                                    <yarnInheritsProxyConfigFromMaven>false</yarnInheritsProxyConfigFromMaven>
+                                    <npmInheritsProxyConfigFromMaven>false</npmInheritsProxyConfigFromMaven>
                                 </configuration>
                             </execution>
                         </executions>

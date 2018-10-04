@@ -39,7 +39,6 @@ public class BankAccount implements Serializable {
 
     @OneToMany(mappedBy = "bankAccount")
     private Set<Operation> operations = new HashSet<>();
-
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;

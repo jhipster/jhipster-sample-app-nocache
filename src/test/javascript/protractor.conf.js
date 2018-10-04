@@ -1,5 +1,3 @@
-const HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
-const JasmineReporters = require('jasmine-reporters');
 
 exports.config = {
     allScriptsTimeout: 20000,
@@ -14,7 +12,9 @@ exports.config = {
     capabilities: {
         browserName: 'chrome',
         chromeOptions: {
-            args: [ "--disable-gpu", "--window-size=800,600" ]
+            args: process.env.JHI_E2E_HEADLESS
+                ? [ "--headless", "--disable-gpu", "--window-size=800,600" ]
+                : [ "--disable-gpu", "--window-size=800,600" ]
         }
     },
 
@@ -22,13 +22,15 @@ exports.config = {
 
     baseUrl: 'http://localhost:8080/',
 
-    framework: 'jasmine2',
+    framework: 'mocha',
 
     SELENIUM_PROMISE_MANAGER: false,
 
-    jasmineNodeOpts: {
-        showColors: true,
-        defaultTimeoutInterval: 720000
+    mochaOpts: {
+        reporter: 'spec',
+        slow: 3000,
+        ui: 'bdd',
+        timeout: 720000
     },
 
     beforeLaunch: function() {
@@ -39,13 +41,14 @@ exports.config = {
 
     onPrepare: function() {
         browser.driver.manage().window().setSize(1280, 1024);
-        jasmine.getEnv().addReporter(new JasmineReporters.JUnitXmlReporter({
-            savePath: 'target/reports/e2e',
-            consolidateAll: false
-        }));
-        jasmine.getEnv().addReporter(new HtmlScreenshotReporter({
-            dest: "target/reports/e2e/screenshots"
-        }));
+        // Disable animations
+        // @ts-ignore
+        browser.executeScript('document.body.className += " notransition";');
+        const chai = require('chai');
+        const chaiAsPromised = require('chai-as-promised');
+        chai.use(chaiAsPromised);
+        // @ts-ignore
+        global.chai = chai;
     },
 
     useAllAngular2AppRoots: true

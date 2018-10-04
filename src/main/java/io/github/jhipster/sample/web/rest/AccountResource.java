@@ -9,6 +9,7 @@ import io.github.jhipster.sample.repository.UserRepository;
 import io.github.jhipster.sample.security.SecurityUtils;
 import io.github.jhipster.sample.service.MailService;
 import io.github.jhipster.sample.service.UserService;
+import io.github.jhipster.sample.service.dto.PasswordChangeDTO;
 import io.github.jhipster.sample.service.dto.UserDTO;
 import io.github.jhipster.sample.web.rest.errors.*;
 import io.github.jhipster.sample.web.rest.vm.KeyAndPasswordVM;
@@ -22,10 +23,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import io.github.jhipster.sample.service.dto.PasswordChangeDTO;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.*;
+
 
 /**
  * REST controller for managing the current user's account.
@@ -67,8 +68,6 @@ public class AccountResource {
         if (!checkPasswordLength(managedUserVM.getPassword())) {
             throw new InvalidPasswordException();
         }
-        userRepository.findOneByLogin(managedUserVM.getLogin().toLowerCase()).ifPresent(u -> {throw new LoginAlreadyUsedException();});
-        userRepository.findOneByEmailIgnoreCase(managedUserVM.getEmail()).ifPresent(u -> {throw new EmailAlreadyUsedException();});
         User user = userService.registerUser(managedUserVM, managedUserVM.getPassword());
         mailService.sendActivationEmail(user);
     }
@@ -136,7 +135,7 @@ public class AccountResource {
         }
         userService.updateUser(userDTO.getFirstName(), userDTO.getLastName(), userDTO.getEmail(),
             userDTO.getLangKey(), userDTO.getImageUrl());
-   }
+    }
 
     /**
      * POST  /account/change-password : changes the current user's password
@@ -151,7 +150,7 @@ public class AccountResource {
             throw new InvalidPasswordException();
         }
         userService.changePassword(passwordChangeDto.getCurrentPassword(), passwordChangeDto.getNewPassword());
-   }
+    }
 
     /**
      * GET  /account/sessions : get the current open sessions.

@@ -1,5 +1,6 @@
 package io.github.jhipster.sample.domain;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -20,7 +21,7 @@ import java.util.Objects;
 public class BankAccount implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -34,7 +35,7 @@ public class BankAccount implements Serializable {
     private BigDecimal balance;
 
     @ManyToOne
-    @JsonIgnoreProperties("")
+    @JsonIgnoreProperties("bankAccounts")
     private User user;
 
     @OneToMany(mappedBy = "bankAccount")

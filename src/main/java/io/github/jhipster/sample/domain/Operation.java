@@ -1,5 +1,6 @@
 package io.github.jhipster.sample.domain;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -20,7 +21,7 @@ import java.util.Objects;
 public class Operation implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -42,8 +43,8 @@ public class Operation implements Serializable {
 
     @ManyToMany
     @JoinTable(name = "operation_label",
-               joinColumns = @JoinColumn(name = "operations_id", referencedColumnName = "id"),
-               inverseJoinColumns = @JoinColumn(name = "labels_id", referencedColumnName = "id"))
+               joinColumns = @JoinColumn(name = "operation_id", referencedColumnName = "id"),
+               inverseJoinColumns = @JoinColumn(name = "label_id", referencedColumnName = "id"))
     private Set<Label> labels = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

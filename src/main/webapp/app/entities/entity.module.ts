@@ -1,17 +1,23 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
-import { JhipsterNoCacheSampleApplicationBankAccountModule } from './bank-account/bank-account.module';
-import { JhipsterNoCacheSampleApplicationLabelModule } from './label/label.module';
-import { JhipsterNoCacheSampleApplicationOperationModule } from './operation/operation.module';
-/* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-    // prettier-ignore
     imports: [
-        JhipsterNoCacheSampleApplicationBankAccountModule,
-        JhipsterNoCacheSampleApplicationLabelModule,
-        JhipsterNoCacheSampleApplicationOperationModule,
-        /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
+        RouterModule.forChild([
+            {
+                path: 'bank-account',
+                loadChildren: './bank-account/bank-account.module#JhipsterNoCacheSampleApplicationBankAccountModule'
+            },
+            {
+                path: 'label',
+                loadChildren: './label/label.module#JhipsterNoCacheSampleApplicationLabelModule'
+            },
+            {
+                path: 'operation',
+                loadChildren: './operation/operation.module#JhipsterNoCacheSampleApplicationOperationModule'
+            }
+            /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
+        ])
     ],
     declarations: [],
     entryComponents: [],

@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import java.io.Serializable;
+import java.util.Objects;
 import java.time.LocalDate;
 
 /**
@@ -102,22 +103,15 @@ public class PersistentToken implements Serializable {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (!(o instanceof PersistentToken)) {
             return false;
         }
-
-        PersistentToken that = (PersistentToken) o;
-
-        if (!series.equals(that.series)) {
-            return false;
-        }
-
-        return true;
+        return Objects.equals(series, ((PersistentToken) o).series);
     }
 
     @Override
     public int hashCode() {
-        return series.hashCode();
+        return Objects.hashCode(series);
     }
 
     @Override

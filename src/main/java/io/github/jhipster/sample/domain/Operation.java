@@ -21,7 +21,7 @@ import java.util.Objects;
 public class Operation implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -34,7 +34,7 @@ public class Operation implements Serializable {
     private String description;
 
     @NotNull
-    @Column(name = "amount", precision = 10, scale = 2, nullable = false)
+    @Column(name = "amount", precision = 21, scale = 2, nullable = false)
     private BigDecimal amount;
 
     @ManyToOne
@@ -102,19 +102,15 @@ public class Operation implements Serializable {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (!(o instanceof Operation)) {
             return false;
         }
-        Operation operation = (Operation) o;
-        if (operation.getId() == null || getId() == null) {
-            return false;
-        }
-        return Objects.equals(getId(), operation.getId());
+        return id != null && id.equals(((Operation) o).id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(getId());
+        return 31;
     }
 
     @Override

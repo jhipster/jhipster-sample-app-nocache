@@ -19,7 +19,7 @@ import java.util.Objects;
 public class Label implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -64,19 +64,15 @@ public class Label implements Serializable {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (!(o instanceof Label)) {
             return false;
         }
-        Label label = (Label) o;
-        if (label.getId() == null || getId() == null) {
-            return false;
-        }
-        return Objects.equals(getId(), label.getId());
+        return id != null && id.equals(((Label) o).id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(getId());
+        return 31;
     }
 
     @Override

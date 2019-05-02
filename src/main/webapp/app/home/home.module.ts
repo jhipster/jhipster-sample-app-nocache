@@ -5,8 +5,8 @@ import { JhipsterNoCacheSampleApplicationSharedModule } from 'app/shared';
 import { HOME_ROUTE, HomeComponent } from './';
 
 @NgModule({
-    imports: [JhipsterNoCacheSampleApplicationSharedModule, RouterModule.forChild([HOME_ROUTE])],
-    declarations: [HomeComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  imports: [JhipsterNoCacheSampleApplicationSharedModule, RouterModule.forChild([HOME_ROUTE])],
+  declarations: [HomeComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class JhipsterNoCacheSampleApplicationHomeModule {}

@@ -92,7 +92,6 @@ jhipster:
       # security key (this key should be unique for your application, and kept secret)
       key: 7e1b1cf0c17326d1b6fc9527464588252ced6f10
   mail: # specific JHipster mail property, for standard properties see MailProperties
-    from: jhipsterNoCacheSampleApplication@localhost
     base-url: http://127.0.0.1:8080
   metrics:
     logs: # Reports metrics in the logs

@@ -1,7 +1,7 @@
 version: '2'
 services:
   jhipsternocachesampleapplication-mysql:
-    image: mysql:8.0.16
+    image: mysql:8.0.17
     # volumes:
     #     - ~/volumes/jhipster/jhipsterNoCacheSampleApplication/mysql/:/var/lib/mysql/
     environment:

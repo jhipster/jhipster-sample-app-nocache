@@ -20,7 +20,7 @@ describe('Component Tests', () => {
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [JhipsterNoCacheSampleApplicationTestModule],
-        declarations: [LabelDeleteDialogComponent]
+        declarations: [LabelDeleteDialogComponent],
       })
         .overrideTemplate(LabelDeleteDialogComponent, '')
         .compileComponents();

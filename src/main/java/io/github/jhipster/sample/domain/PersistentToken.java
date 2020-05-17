@@ -114,6 +114,7 @@ public class PersistentToken implements Serializable {
         return Objects.hashCode(series);
     }
 
+    // prettier-ignore
     @Override
     public String toString() {
         return "PersistentToken{" +

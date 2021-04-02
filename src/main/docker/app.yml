@@ -19,7 +19,6 @@ services:
     # volumes:
     #   - ~/volumes/jhipster/jhipsterNoCacheSampleApplication/mysql/:/var/lib/mysql/
     environment:
-      - MYSQL_USER=root
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
       - MYSQL_DATABASE=jhipsternocachesampleapplication
     # If you want to expose these ports outside your dev PC,

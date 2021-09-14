@@ -19,6 +19,7 @@ public class BankAccount implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @NotNull
@@ -37,17 +38,18 @@ public class BankAccount implements Serializable {
     private Set<Operation> operations = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
+
     public Long getId() {
-        return id;
+        return this.id;
+    }
+
+    public BankAccount id(Long id) {
+        this.setId(id);
+        return this;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public BankAccount id(Long id) {
-        this.id = id;
-        return this;
     }
 
     public String getName() {
@@ -55,7 +57,7 @@ public class BankAccount implements Serializable {
     }
 
     public BankAccount name(String name) {
-        this.name = name;
+        this.setName(name);
         return this;
     }
 
@@ -68,7 +70,7 @@ public class BankAccount implements Serializable {
     }
 
     public BankAccount balance(BigDecimal balance) {
-        this.balance = balance;
+        this.setBalance(balance);
         return this;
     }
 
@@ -80,17 +82,27 @@ public class BankAccount implements Serializable {
         return this.user;
     }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public BankAccount user(User user) {
         this.setUser(user);
         return this;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public Set<Operation> getOperations() {
         return this.operations;
+    }
+
+    public void setOperations(Set<Operation> operations) {
+        if (this.operations != null) {
+            this.operations.forEach(i -> i.setBankAccount(null));
+        }
+        if (operations != null) {
+            operations.forEach(i -> i.setBankAccount(this));
+        }
+        this.operations = operations;
     }
 
     public BankAccount operations(Set<Operation> operations) {
@@ -108,16 +120,6 @@ public class BankAccount implements Serializable {
         this.operations.remove(operation);
         operation.setBankAccount(null);
         return this;
-    }
-
-    public void setOperations(Set<Operation> operations) {
-        if (this.operations != null) {
-            this.operations.forEach(i -> i.setBankAccount(null));
-        }
-        if (operations != null) {
-            operations.forEach(i -> i.setBankAccount(this));
-        }
-        this.operations = operations;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

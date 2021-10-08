@@ -158,8 +158,8 @@ jhipster:
   api-docs:
     default-include-pattern: ${server.servlet.context-path:}/api/.*
     management-include-pattern: ${server.servlet.context-path:}/management/.*
-    title: jhipsterNoCacheSampleApplication API
-    description: jhipsterNoCacheSampleApplication API documentation
+    title: Jhipster No Cache Sample Application API
+    description: Jhipster No Cache Sample Application API documentation
     version: 0.0.1
     terms-of-service-url:
     contact-name:

@@ -12,6 +12,7 @@ import javax.validation.constraints.*;
  */
 @Entity
 @Table(name = "label")
+@SuppressWarnings("common-java:DuplicatedBlocks")
 public class Label implements Serializable {
 
     private static final long serialVersionUID = 1L;

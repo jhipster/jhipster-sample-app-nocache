@@ -13,6 +13,7 @@ import javax.validation.constraints.*;
  */
 @Entity
 @Table(name = "bank_account")
+@SuppressWarnings("common-java:DuplicatedBlocks")
 public class BankAccount implements Serializable {
 
     private static final long serialVersionUID = 1L;

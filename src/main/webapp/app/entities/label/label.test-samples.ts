@@ -1,22 +1,22 @@
 import { ILabel, NewLabel } from './label.model';
 
 export const sampleWithRequiredData: ILabel = {
-  id: 8984,
+  id: 2944,
   label: 'Bentley Bicycle',
 };
 
 export const sampleWithPartialData: ILabel = {
-  id: 94520,
-  label: 'Borders bypassing Accountability',
+  id: 30972,
+  label: 'Northeast bypassing Human',
 };
 
 export const sampleWithFullData: ILabel = {
-  id: 20256,
-  label: 'Keyboard',
+  id: 6637,
+  label: 'Rustic',
 };
 
 export const sampleWithNewData: NewLabel = {
-  label: 'Ohio Pickup',
+  label: 'Lakes Dollar',
   id: null,
 };
 

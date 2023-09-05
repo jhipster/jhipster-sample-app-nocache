@@ -5,26 +5,26 @@ import { IOperation, NewOperation } from './operation.model';
 export const sampleWithRequiredData: IOperation = {
   id: 6622,
   date: dayjs('2015-08-04T17:02'),
-  amount: 12370,
+  amount: 12370.02,
 };
 
 export const sampleWithPartialData: IOperation = {
   id: 29615,
   date: dayjs('2015-08-05T06:52'),
-  description: 'Chrysler',
-  amount: 10307,
+  description: 'incidentally',
+  amount: 30288.51,
 };
 
 export const sampleWithFullData: IOperation = {
-  id: 8201,
-  date: dayjs('2015-08-05T02:31'),
-  description: 'grey',
-  amount: 1955,
+  id: 4732,
+  date: dayjs('2015-08-05T03:42'),
+  description: 'postfix',
+  amount: 15131.8,
 };
 
 export const sampleWithNewData: NewOperation = {
-  date: dayjs('2015-08-05T11:16'),
-  amount: 28481,
+  date: dayjs('2015-08-04T18:24'),
+  amount: 18843.89,
   id: null,
 };
 

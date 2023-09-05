@@ -15,7 +15,7 @@ describe('Operation e2e test', () => {
   const operationPageUrlPattern = new RegExp('/operation(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const operationSample = { date: '2015-08-04T15:03:19.569Z', amount: 11389 };
+  const operationSample = { date: '2015-08-05T01:06:25.792Z', amount: 31841.36 };
 
   let operation;
 
@@ -95,7 +95,7 @@ describe('Operation e2e test', () => {
                 link: '<http://localhost/api/operations?page=0&size=20>; rel="last",<http://localhost/api/operations?page=0&size=20>; rel="first"',
               },
               body: [operation],
-            }
+            },
           ).as('entitiesRequestInternal');
         });
 
@@ -160,15 +160,15 @@ describe('Operation e2e test', () => {
     });
 
     it('should create an instance of Operation', () => {
-      cy.get(`[data-cy="date"]`).type('2015-08-05T06:12');
+      cy.get(`[data-cy="date"]`).type('2015-08-05T07:11');
       cy.get(`[data-cy="date"]`).blur();
-      cy.get(`[data-cy="date"]`).should('have.value', '2015-08-05T06:12');
+      cy.get(`[data-cy="date"]`).should('have.value', '2015-08-05T07:11');
 
-      cy.get(`[data-cy="description"]`).type('aggressive Architect Mountain');
-      cy.get(`[data-cy="description"]`).should('have.value', 'aggressive Architect Mountain');
+      cy.get(`[data-cy="description"]`).type('about spine consequently');
+      cy.get(`[data-cy="description"]`).should('have.value', 'about spine consequently');
 
-      cy.get(`[data-cy="amount"]`).type('27252');
-      cy.get(`[data-cy="amount"]`).should('have.value', '27252');
+      cy.get(`[data-cy="amount"]`).type('25703.2');
+      cy.get(`[data-cy="amount"]`).should('have.value', '25703.2');
 
       cy.get(entityCreateSaveButtonSelector).click();
 

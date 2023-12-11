@@ -76,15 +76,15 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "jhipster-no-cache-sample-application:build:development",
+            "buildTarget": "jhipster-no-cache-sample-application:build:development",
             "port": 4200
           },
           "configurations": {
             "production": {
-              "browserTarget": "jhipster-no-cache-sample-application:build:production"
+              "buildTarget": "jhipster-no-cache-sample-application:build:production"
             },
             "development": {
-              "browserTarget": "jhipster-no-cache-sample-application:build:development"
+              "buildTarget": "jhipster-no-cache-sample-application:build:development"
             }
           },
           "defaultConfiguration": "development"

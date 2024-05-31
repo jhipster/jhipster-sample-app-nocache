@@ -3,27 +3,28 @@ import dayjs from 'dayjs/esm';
 import { IOperation, NewOperation } from './operation.model';
 
 export const sampleWithRequiredData: IOperation = {
-  id: 16253,
-  date: dayjs('2015-08-04T15:45'),
-  amount: 32528.35,
+  id: 5825,
+  date: dayjs('2015-08-04T15:09'),
+  amount: 8145.77,
 };
 
 export const sampleWithPartialData: IOperation = {
-  id: 28205,
-  date: dayjs('2015-08-05T12:18'),
-  amount: 10446.71,
+  id: 27104,
+  date: dayjs('2015-08-05T07:34'),
+  description: 'yahoo',
+  amount: 1955.38,
 };
 
 export const sampleWithFullData: IOperation = {
-  id: 8923,
-  date: dayjs('2015-08-05T08:59'),
-  description: 'stained although',
-  amount: 2510.42,
+  id: 2148,
+  date: dayjs('2015-08-04T15:59'),
+  description: 'moon',
+  amount: 7727.95,
 };
 
 export const sampleWithNewData: NewOperation = {
-  date: dayjs('2015-08-05T02:52'),
-  amount: 9242.35,
+  date: dayjs('2015-08-04T16:53'),
+  amount: 29753.63,
   id: null,
 };
 

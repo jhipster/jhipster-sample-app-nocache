@@ -49,10 +49,10 @@ describe('BankAccount Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call User query and add missing value', () => {
       const bankAccount: IBankAccount = { id: 456 };
-      const user: IUser = { id: 23410 };
+      const user: IUser = { id: 3026 };
       bankAccount.user = user;
 
-      const userCollection: IUser[] = [{ id: 20450 }];
+      const userCollection: IUser[] = [{ id: 2793 }];
       jest.spyOn(userService, 'query').mockReturnValue(of(new HttpResponse({ body: userCollection })));
       const additionalUsers = [user];
       const expectedCollection: IUser[] = [...additionalUsers, ...userCollection];
@@ -71,7 +71,7 @@ describe('BankAccount Management Update Component', () => {
 
     it('Should update editForm', () => {
       const bankAccount: IBankAccount = { id: 456 };
-      const user: IUser = { id: 18469 };
+      const user: IUser = { id: 6697 };
       bankAccount.user = user;
 
       activatedRoute.data = of({ bankAccount });

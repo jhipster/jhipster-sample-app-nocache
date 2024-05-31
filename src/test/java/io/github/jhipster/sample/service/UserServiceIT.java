@@ -15,6 +15,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Optional;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,9 @@ import tech.jhipster.security.RandomUtil;
 @Transactional
 class UserServiceIT {
 
-    private static final String DEFAULT_LOGIN = "johndoe";
+    private static final String DEFAULT_LOGIN = "johndoe_service";
 
-    private static final String DEFAULT_EMAIL = "johndoe@localhost";
+    private static final String DEFAULT_EMAIL = "johndoe_service@localhost";
 
     private static final String DEFAULT_FIRSTNAME = "john";
 
@@ -60,9 +61,15 @@ class UserServiceIT {
 
     private User user;
 
+    private Long numberOfUsers;
+
+    @BeforeEach
+    public void countUsers() {
+        numberOfUsers = userRepository.count();
+    }
+
     @BeforeEach
     public void init() {
-        persistentTokenRepository.deleteAll();
         user = new User();
         user.setLogin(DEFAULT_LOGIN);
         user.setPassword(RandomStringUtils.randomAlphanumeric(60));
@@ -75,6 +82,14 @@ class UserServiceIT {
 
         when(dateTimeProvider.getNow()).thenReturn(Optional.of(LocalDateTime.now()));
         auditingHandler.setDateTimeProvider(dateTimeProvider);
+    }
+
+    @AfterEach
+    public void cleanupAndCheck() {
+        persistentTokenRepository.deleteAll();
+        userService.deleteUser(DEFAULT_LOGIN);
+        assertThat(userRepository.count()).isEqualTo(numberOfUsers);
+        numberOfUsers = null;
     }
 
     @Test

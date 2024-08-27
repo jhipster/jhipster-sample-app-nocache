@@ -32,7 +32,7 @@ import tech.jhipster.security.RandomUtil;
 @Transactional
 public class UserService {
 
-    private static final Logger log = LoggerFactory.getLogger(UserService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(UserService.class);
 
     private final UserRepository userRepository;
 
@@ -55,20 +55,20 @@ public class UserService {
     }
 
     public Optional<User> activateRegistration(String key) {
-        log.debug("Activating user for activation key {}", key);
+        LOG.debug("Activating user for activation key {}", key);
         return userRepository
             .findOneByActivationKey(key)
             .map(user -> {
                 // activate given user for the registration key.
                 user.setActivated(true);
                 user.setActivationKey(null);
-                log.debug("Activated user: {}", user);
+                LOG.debug("Activated user: {}", user);
                 return user;
             });
     }
 
     public Optional<User> completePasswordReset(String newPassword, String key) {
-        log.debug("Reset user password for reset key {}", key);
+        LOG.debug("Reset user password for reset key {}", key);
         return userRepository
             .findOneByResetKey(key)
             .filter(user -> user.getResetDate().isAfter(Instant.now().minus(1, ChronoUnit.DAYS)))
@@ -128,7 +128,7 @@ public class UserService {
         authorityRepository.findById(AuthoritiesConstants.USER).ifPresent(authorities::add);
         newUser.setAuthorities(authorities);
         userRepository.save(newUser);
-        log.debug("Created Information for User: {}", newUser);
+        LOG.debug("Created Information for User: {}", newUser);
         return newUser;
     }
 
@@ -171,7 +171,7 @@ public class UserService {
             user.setAuthorities(authorities);
         }
         userRepository.save(user);
-        log.debug("Created Information for User: {}", user);
+        LOG.debug("Created Information for User: {}", user);
         return user;
     }
 
@@ -205,7 +205,7 @@ public class UserService {
                     .map(Optional::get)
                     .forEach(managedAuthorities::add);
                 userRepository.save(user);
-                log.debug("Changed Information for User: {}", user);
+                LOG.debug("Changed Information for User: {}", user);
                 return user;
             })
             .map(AdminUserDTO::new);
@@ -216,7 +216,7 @@ public class UserService {
             .findOneByLogin(login)
             .ifPresent(user -> {
                 userRepository.delete(user);
-                log.debug("Deleted User: {}", user);
+                LOG.debug("Deleted User: {}", user);
             });
     }
 
@@ -241,7 +241,7 @@ public class UserService {
                 user.setLangKey(langKey);
                 user.setImageUrl(imageUrl);
                 userRepository.save(user);
-                log.debug("Changed Information for User: {}", user);
+                LOG.debug("Changed Information for User: {}", user);
             });
     }
 
@@ -256,7 +256,7 @@ public class UserService {
                 }
                 String encryptedPassword = passwordEncoder.encode(newPassword);
                 user.setPassword(encryptedPassword);
-                log.debug("Changed password for User: {}", user);
+                LOG.debug("Changed password for User: {}", user);
             });
     }
 
@@ -292,7 +292,7 @@ public class UserService {
         persistentTokenRepository
             .findByTokenDateBefore(now.minusMonths(1))
             .forEach(token -> {
-                log.debug("Deleting token {}", token.getSeries());
+                LOG.debug("Deleting token {}", token.getSeries());
                 User user = token.getUser();
                 user.getPersistentTokens().remove(token);
                 persistentTokenRepository.delete(token);
@@ -309,7 +309,7 @@ public class UserService {
         userRepository
             .findAllByActivatedIsFalseAndActivationKeyIsNotNullAndCreatedDateBefore(Instant.now().minus(3, ChronoUnit.DAYS))
             .forEach(user -> {
-                log.debug("Deleting not activated user {}", user.getLogin());
+                LOG.debug("Deleting not activated user {}", user.getLogin());
                 userRepository.delete(user);
             });
     }

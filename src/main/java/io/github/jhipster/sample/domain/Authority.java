@@ -24,6 +24,7 @@ public class Authority implements Serializable, Persistable<String> {
     @Column(name = "name", length = 50, nullable = false)
     private String name;
 
+    @org.springframework.data.annotation.Transient
     @Transient
     private boolean isPersisted;
 
@@ -53,6 +54,7 @@ public class Authority implements Serializable, Persistable<String> {
         return this.name;
     }
 
+    @org.springframework.data.annotation.Transient
     @Transient
     @Override
     public boolean isNew() {

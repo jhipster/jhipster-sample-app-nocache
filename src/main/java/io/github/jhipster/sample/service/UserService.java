@@ -284,7 +284,7 @@ public class UserService {
      * Persistent Token are used for providing automatic authentication, they should be automatically deleted after
      * 30 days.
      * <p>
-     * This is scheduled to get fired everyday, at midnight.
+     * This is scheduled to get fired every day, at midnight.
      */
     @Scheduled(cron = "0 0 0 * * ?")
     public void removeOldPersistentTokens() {
@@ -302,7 +302,7 @@ public class UserService {
     /**
      * Not activated users should be automatically deleted after 3 days.
      * <p>
-     * This is scheduled to get fired everyday, at 01:00 (am).
+     * This is scheduled to get fired every day, at 01:00 (am).
      */
     @Scheduled(cron = "0 0 1 * * ?")
     public void removeNotActivatedUsers() {

@@ -3,6 +3,7 @@ package io.github.jhipster.sample.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -16,6 +17,7 @@ import java.util.Set;
 @SuppressWarnings("common-java:DuplicatedBlocks")
 public class BankAccount implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id

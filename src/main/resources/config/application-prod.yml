@@ -34,8 +34,6 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:mysql://localhost:3306/jhipsterNoCacheSampleApplication?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true
-    username: root
-    password:
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -50,8 +48,6 @@ spring:
   mail:
     host: localhost
     port: 25
-    username:
-    password:
   thymeleaf:
     cache: true
 
@@ -92,10 +88,6 @@ jhipster:
   http:
     cache: # Used by the CachingHttpHeadersFilter
       timeToLiveInDays: 1461
-  security:
-    remember-me:
-      # security key (this key should be unique for your application, and kept secret)
-      key: 7e1b1cf0c17326d1b6fc9527464588252ced6f10
   mail: # specific JHipster mail property, for standard properties see MailProperties
     base-url: http://my-server-url-to-change # Modify according to your server's URL
   logging:

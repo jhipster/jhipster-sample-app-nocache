@@ -14,7 +14,7 @@ describe('UserManagement e2e test', () => {
   const userManagementPageUrl = '/user-management';
   let username: string;
   let password: string;
-  const userManagementSample = { login: 'Alford.Graham57', email: 'Kurt82@gmail.com' };
+  const userManagementSample = { login: 'Alvin.Graham57', email: 'Kade82@gmail.com' };
 
   let userManagement;
 
@@ -170,23 +170,23 @@ describe('UserManagement e2e test', () => {
     });
 
     it('should create an instance of UserManagement', () => {
-      cy.get(`[data-cy="login"]`).type('Elsa_Stark');
-      cy.get(`[data-cy="login"]`).should('have.value', 'Elsa_Stark');
+      cy.get(`[data-cy="login"]`).type('Eldora_Stark');
+      cy.get(`[data-cy="login"]`).should('have.value', 'Eldora_Stark');
 
-      cy.get(`[data-cy="firstName"]`).type('Boyd');
-      cy.get(`[data-cy="firstName"]`).should('have.value', 'Boyd');
+      cy.get(`[data-cy="firstName"]`).type('Brady');
+      cy.get(`[data-cy="firstName"]`).should('have.value', 'Brady');
 
       cy.get(`[data-cy="lastName"]`).type('Lynch');
       cy.get(`[data-cy="lastName"]`).should('have.value', 'Lynch');
 
-      cy.get(`[data-cy="email"]`).type('Olin_Braun@gmail.com');
-      cy.get(`[data-cy="email"]`).should('have.value', 'Olin_Braun@gmail.com');
-
-      cy.get(`[data-cy="langKey"]`).select('en');
+      cy.get(`[data-cy="email"]`).type('Phil_Braun@gmail.com');
+      cy.get(`[data-cy="email"]`).should('have.value', 'Phil_Braun@gmail.com');
 
       cy.get(`[data-cy="activated"]`).should('be.checked');
       cy.get(`[data-cy="activated"]`).click();
       cy.get(`[data-cy="activated"]`).should('not.be.checked');
+
+      cy.get(`[data-cy="langKey"]`).select('en');
 
       cy.get(entityCreateSaveButtonSelector).click();
 

@@ -2,31 +2,31 @@ import { Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'user-management',
+    title: 'userManagement.home.title',
+    loadChildren: () => import('./admin/user-management/user-management.routes'),
+  },
+  {
     path: 'authority',
-    data: { pageTitle: 'jhipsterNoCacheSampleApplicationApp.adminAuthority.home.title' },
+    title: 'jhipsterNoCacheSampleApplicationApp.adminAuthority.home.title',
     loadChildren: () => import('./admin/authority/authority.routes'),
   },
   {
     path: 'bank-account',
-    data: { pageTitle: 'jhipsterNoCacheSampleApplicationApp.bankAccount.home.title' },
+    title: 'jhipsterNoCacheSampleApplicationApp.bankAccount.home.title',
     loadChildren: () => import('./bank-account/bank-account.routes'),
   },
   {
     path: 'label',
-    data: { pageTitle: 'jhipsterNoCacheSampleApplicationApp.label.home.title' },
+    title: 'jhipsterNoCacheSampleApplicationApp.label.home.title',
     loadChildren: () => import('./label/label.routes'),
   },
   {
     path: 'operation',
-    data: { pageTitle: 'jhipsterNoCacheSampleApplicationApp.operation.home.title' },
+    title: 'jhipsterNoCacheSampleApplicationApp.operation.home.title',
     loadChildren: () => import('./operation/operation.routes'),
   },
-  {
-    path: 'user-management',
-    data: { pageTitle: 'userManagement.home.title' },
-    loadChildren: () => import('./admin/user-management/user-management.routes'),
-  },
-  /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
+  // jhipster-needle-add-entity-route - JHipster will add entity modules routes here
 ];
 
 export default routes;

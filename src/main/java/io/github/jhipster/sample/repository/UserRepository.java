@@ -20,15 +20,15 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findOneByResetKey(String resetKey);
 
-    Optional<User> findOneByEmailIgnoreCase(String email);
+    @EntityGraph(attributePaths = "authorities")
+    Optional<User> findOneWithAuthoritiesByEmailIgnoreCase(String email);
 
-    Optional<User> findOneByLogin(String login);
+    Optional<User> findOneByEmailIgnoreCase(String email);
 
     @EntityGraph(attributePaths = "authorities")
     Optional<User> findOneWithAuthoritiesByLogin(String login);
 
-    @EntityGraph(attributePaths = "authorities")
-    Optional<User> findOneWithAuthoritiesByEmailIgnoreCase(String email);
+    Optional<User> findOneByLogin(String login);
 
     Page<User> findAllByIdNotNullAndActivatedIsTrue(Pageable pageable);
 }
